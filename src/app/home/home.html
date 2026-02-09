@@ -1,0 +1,34 @@
+<!-- HERO SECTION -->
+<div class="bg-dark text-white text-center p-5 rounded mb-5">
+  <h1 class="fw-bold">Welcome to ShopSphere</h1>
+  <p class="lead">Shop smarter. Faster. Better.</p>
+  <button class="btn btn-warning btn-lg" (click)="goToProducts()">
+    Shop Now
+  </button>
+</div>
+
+<!-- FEATURED PRODUCTS -->
+<h3 class="mb-4">Featured Products</h3>
+
+<div class="row">
+  <div class="col-md-4 mb-4" *ngFor="let product of products">
+    <div class="card h-100 shadow-sm">
+      <img src="https://via.placeholder.com/300" class="card-img-top">
+
+      <div class="card-body">
+        <h5>{{ product.name }}</h5>
+        <p class="text-muted">{{ product.description }}</p>
+        <h6 class="text-success fw-bold">₹{{ product.price }}</h6>
+      </div>
+
+      <div class="card-footer bg-white">
+        <button class="btn btn-outline-primary w-100"
+                (click)="openProduct(product.id)">
+          View Product
+        </button>
+        <button (click)="testToast()">Test Toast</button>
+
+      </div>
+    </div>
+  </div>
+</div>

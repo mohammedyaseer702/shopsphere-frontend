@@ -1,0 +1,55 @@
+<h2 class="mb-4">Products</h2>
+
+<!-- 🔥 Skeleton Loader -->
+<div class="row" *ngIf="products.length === 0">
+  <div class="col-md-4 mb-4" *ngFor="let i of [1,2,3]">
+    <div class="card h-100 shadow-sm placeholder-glow">
+      <div class="card-img-top placeholder" style="height:200px;"></div>
+      <div class="card-body">
+        <div class="placeholder col-6 mb-2"></div>
+        <div class="placeholder col-4 mb-2"></div>
+        <div class="placeholder col-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Real Products -->
+<div class="row" *ngIf="products.length > 0">
+  <div class="col-md-4 mb-4" *ngFor="let product of products">
+    <div class="card h-100 shadow-sm">
+
+      <img
+        [src]="product.imageUrl || 'assets/no-image.png'"
+        (error)="onImageError($event)"
+        class="card-img-top"
+        style="height:200px; object-fit:cover;"
+      />
+
+      <div class="card-body">
+        <h5 class="card-title"
+            style="cursor:pointer"
+            (click)="viewProduct(product.id)">
+          {{ product.name }}
+        </h5>
+
+        <p class="card-text text-muted">
+          {{ product.description }}
+        </p>
+
+        <h6 class="text-success fw-bold">
+          ₹{{ product.price }}
+        </h6>
+      </div>
+
+      <div class="card-footer bg-white">
+        <button class="btn btn-primary w-100"
+                [disabled]="adding.has(product.id)"
+                (click)="addToCart(product.id)">
+          {{ adding.has(product.id) ? 'Adding...' : 'Add to Cart' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<h2>All Orders (Admin)</h2>
+
+<div *ngFor="let order of orders">
+  <p>Order #{{ order.id }} | ₹{{ order.totalAmount }} | {{ order.status }}</p>
+  <hr>
+</div>

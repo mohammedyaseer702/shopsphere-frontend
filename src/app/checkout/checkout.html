@@ -1,0 +1,11 @@
+<div class="card shadow p-4">
+  <h3>Checkout</h3>
+  <hr>
+
+  <p><strong>Payment Method:</strong> Cash on Delivery</p>
+
+  <button class="btn btn-success" [disabled]="loading"
+          (click)="placeOrder()">
+    {{ loading ? 'Placing Order...' : 'Place Order' }}
+  </button>
+</div>

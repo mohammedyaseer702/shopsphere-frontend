@@ -1,0 +1,12 @@
+<h2>My Orders</h2>
+
+<div *ngFor="let order of orders">
+  <p><strong>Order ID:</strong> {{ order.id }}</p>
+  <p><strong>Total:</strong> ₹{{ order.total }}</p>
+  <p><strong>Status:</strong> {{ order.status }}</p>
+  <hr>
+  <div *ngIf="orders.length === 0" class="text-center text-muted mt-5">
+  <h5>No orders yet 📦</h5>
+</div>
+
+</div>
